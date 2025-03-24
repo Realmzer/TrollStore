@@ -144,20 +144,52 @@ extern NSUserDefaults* trollStoreUserDefaults(void);
 		[respringButtonSpecifier setProperty:@YES forKey:@"enabled"];
 		respringButtonSpecifier.buttonAction = @selector(respringButtonPressed);
 
+		UIImage *respringsymbolImage = [UIImage systemImageNamed:@"arrow.counterclockwise"];
+		if (respringsymbolImage) {
+ 	     respringsymbolImage = [respringsymbolImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    	[respringButtonSpecifier setProperty:respringsymbolImage forKey:@"iconImage"];
+}
+
 		[_specifiers addObject:respringButtonSpecifier];
 
-		PSSpecifier* refreshAppRegistrationsSpecifier = [PSSpecifier preferenceSpecifierNamed:@"Refresh App Registrations"
+		PSSpecifier* userspacerebootButtonSpecifier = [PSSpecifier preferenceSpecifierNamed:@"Userspace Reboot"
 											target:self
 											set:nil
 											get:nil
 											detail:nil
 											cell:PSButtonCell
 											edit:nil];
+		userspacerebootButtonSpecifier.identifier = @"userspacereboot";
+		[userspacerebootButtonSpecifier setProperty:@YES forKey:@"enabled"];
+		userspacerebootButtonSpecifier.buttonAction = @selector(userspacerebootButtonPressed);
+
+		UIImage *userspacerebootsymbolImage = [UIImage systemImageNamed:@"restart.circle"];
+		if (userspacerebootsymbolImage) {
+ 	     userspacerebootsymbolImage = [userspacerebootsymbolImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    	[userspacerebootButtonSpecifier setProperty:userspacerebootsymbolImage forKey:@"iconImage"];
+}
+
+		[_specifiers addObject:userspacerebootButtonSpecifier];
+
+		PSSpecifier* refreshAppRegistrationsSpecifier = [PSSpecifier preferenceSpecifierNamed:@"Refresh App Registrations"
+                                        target:self
+                                        set:nil
+                                        get:nil
+                                        detail:nil
+                                        cell:PSButtonCell
+                                        edit:nil];
 		refreshAppRegistrationsSpecifier.identifier = @"refreshAppRegistrations";
 		[refreshAppRegistrationsSpecifier setProperty:@YES forKey:@"enabled"];
 		refreshAppRegistrationsSpecifier.buttonAction = @selector(refreshAppRegistrationsPressed);
 
-		[_specifiers addObject:refreshAppRegistrationsSpecifier];
+		UIImage *refreshappregistrationssymbolImage = [UIImage systemImageNamed:@"arrowtriangle.left.circle.fill"];
+		if (refreshappregistrationssymbolImage) {
+ 	     refreshappregistrationssymbolImage = [refreshappregistrationssymbolImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    	[refreshAppRegistrationsSpecifier setProperty:refreshappregistrationssymbolImage forKey:@"iconImage"];
+}
+
+[_specifiers addObject:refreshAppRegistrationsSpecifier];
+
 
 		PSSpecifier* rebuildIconCacheSpecifier = [PSSpecifier preferenceSpecifierNamed:@"Rebuild Icon Cache"
 											target:self
@@ -169,6 +201,12 @@ extern NSUserDefaults* trollStoreUserDefaults(void);
 		 rebuildIconCacheSpecifier.identifier = @"uicache";
 		[rebuildIconCacheSpecifier setProperty:@YES forKey:@"enabled"];
 		rebuildIconCacheSpecifier.buttonAction = @selector(rebuildIconCachePressed);
+
+		UIImage *rebuildiconcachesymbolImage = [UIImage systemImageNamed:@"hammer.fill"];
+		if (rebuildiconcachesymbolImage) {
+ 	     rebuildiconcachesymbolImage = [rebuildiconcachesymbolImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    	[rebuildIconCacheSpecifier setProperty:rebuildiconcachesymbolImage forKey:@"iconImage"];
+}
 
 		[_specifiers addObject:rebuildIconCacheSpecifier];
 
@@ -184,6 +222,12 @@ extern NSUserDefaults* trollStoreUserDefaults(void);
 			transferAppsSpecifier.identifier = @"transferApps";
 			[transferAppsSpecifier setProperty:@YES forKey:@"enabled"];
 			transferAppsSpecifier.buttonAction = @selector(transferAppsPressed);
+
+			UIImage *symbolImage = [UIImage systemImageNamed:@"square.and.arrow.down.fill"];
+			if (symbolImage) {
+ 	     	symbolImage = [symbolImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    		[transferAppsSpecifier setProperty:symbolImage forKey:@"iconImage"];
+}
 
 			[_specifiers addObject:transferAppsSpecifier];
 		}
@@ -382,6 +426,13 @@ extern NSUserDefaults* trollStoreUserDefaults(void);
 										edit:nil];
 		advancedLinkSpecifier.detailControllerClass = [TSSettingsAdvancedListController class];
 		[advancedLinkSpecifier setProperty:@YES forKey:@"enabled"];
+
+		UIImage *advancedlinksymbolImage = [UIImage systemImageNamed:@"wrench.fill"];
+		if (advancedlinksymbolImage) {
+ 	     advancedlinksymbolImage = [advancedlinksymbolImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    	[advancedLinkSpecifier setProperty:advancedlinksymbolImage forKey:@"iconImage"];
+		}
+
 		[_specifiers addObject:advancedLinkSpecifier];
 
 		PSSpecifier* donateSpecifier = [PSSpecifier preferenceSpecifierNamed:@"Donate"
@@ -393,6 +444,13 @@ extern NSUserDefaults* trollStoreUserDefaults(void);
 										edit:nil];
 		donateSpecifier.detailControllerClass = [TSDonateListController class];
 		[donateSpecifier setProperty:@YES forKey:@"enabled"];
+		
+		UIImage *donatesymbolImage = [UIImage systemImageNamed:@"heart.fill"];
+		if (donatesymbolImage) {
+ 	     donatesymbolImage = [donatesymbolImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    	[donateSpecifier setProperty:donatesymbolImage forKey:@"iconImage"];
+}
+
 		[_specifiers addObject:donateSpecifier];
 
 #ifndef TROLLSTORE_LITE
@@ -441,6 +499,13 @@ extern NSUserDefaults* trollStoreUserDefaults(void);
 {
 	respring();
 }
+
+#ifdef TROLLSTORE_LITE
+- (void)userspacerebootButtonPressed
+{
+	userspacereboot();
+}
+#endif
 
 - (void)installOrUpdateLdidPressed
 {

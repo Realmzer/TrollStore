@@ -29,6 +29,13 @@ extern NSUserDefaults* trollStoreUserDefaults();
 											edit:nil];
 		[installationMethodSpecifier setProperty:@YES forKey:@"enabled"];
 		installationMethodSpecifier.identifier = @"installationMethodLabel";
+
+		UIImage *installationmethodgroupsymbolImage = [UIImage systemImageNamed:@"tray.and.arrow.down.fill"];
+		if (installationmethodgroupsymbolImage) {
+ 	     installationmethodgroupsymbolImage = [installationmethodgroupsymbolImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    	[installationMethodSpecifier setProperty:installationmethodgroupsymbolImage forKey:@"iconImage"];
+		}
+
 		[_specifiers addObject:installationMethodSpecifier];
 
 		PSSpecifier* installationMethodSegmentSpecifier = [PSSpecifier preferenceSpecifierNamed:@"Installation Method Segment"
@@ -61,6 +68,13 @@ extern NSUserDefaults* trollStoreUserDefaults();
 											edit:nil];
 		[uninstallationMethodSpecifier setProperty:@YES forKey:@"enabled"];
 		uninstallationMethodSpecifier.identifier = @"uninstallationMethodLabel";
+
+		UIImage *uninstallationMethodSpecifiersymbolimage = [UIImage systemImageNamed:@"tray.and.arrow.up.fill"];
+		if (uninstallationMethodSpecifiersymbolimage) {
+ 	     uninstallationMethodSpecifiersymbolimage = [uninstallationMethodSpecifiersymbolimage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    	[uninstallationMethodSpecifier setProperty:uninstallationMethodSpecifiersymbolimage forKey:@"iconImage"];
+		}
+		
 		[_specifiers addObject:uninstallationMethodSpecifier];
 
 		PSSpecifier* uninstallationMethodSegmentSpecifier = [PSSpecifier preferenceSpecifierNamed:@"Installation Method Segment"

@@ -5,6 +5,9 @@
 #import <sys/sysctl.h>
 #import <mach-o/dyld.h>
 #import <libroot.h>
+#include <sys/wait.h>
+#import <dlfcn.h>
+#import <rootless.h>
 
 static EXPLOIT_TYPE gPlatformVulnerabilities;
 
@@ -299,6 +302,17 @@ void respring(void)
 	killall(@"SpringBoard", YES);
 	exit(0);
 }
+
+#ifdef TROLLSTORE_LITE
+void userspacereboot(void)
+{
+	pid_t pid;
+	const char* args[] = {"launchctl", "reboot", "userspace", NULL};
+	posix_spawn(&pid, ROOT_PATH("/usr/bin/launchctl"), NULL, NULL, (char* const*)args, NULL);
+	NSString* filePath = ROOT_PATH_NS(@"/var/jb/Library/Application Support/");
+}
+#endif
+
 
 void github_fetchLatestVersion(NSString* repo, void (^completionHandler)(NSString* latestVersion))
 {

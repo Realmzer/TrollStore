@@ -31,6 +31,9 @@ extern void printMultilineNSString(NSString* stringToPrint);
 extern int spawnRoot(NSString* path, NSArray* args, NSString** stdOut, NSString** stdErr);
 extern void killall(NSString* processName, BOOL softly);
 extern void respring(void);
+#if TROLLSTORE_LITE
+extern void userspacereboot(void);
+#endif
 extern void fetchLatestTrollStoreVersion(void (^completionHandler)(NSString* latestVersion));
 extern void fetchLatestLdidVersion(void (^completionHandler)(NSString* latestVersion));
 

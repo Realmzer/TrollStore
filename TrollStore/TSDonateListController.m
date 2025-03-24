@@ -35,6 +35,12 @@
 		alfieDonateSpecifier.identifier = @"donateToAlfie";
 		[alfieDonateSpecifier setProperty:@YES forKey:@"enabled"];
 		alfieDonateSpecifier.buttonAction = @selector(donateToAlfiePressed);
+
+		UIImage *alfiedonatesymbolImage = [UIImage systemImageNamed:@"heart"];
+		if (alfiedonatesymbolImage) {
+ 	     alfiedonatesymbolImage = [alfiedonatesymbolImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    	[alfieDonateSpecifier setProperty:alfiedonatesymbolImage forKey:@"iconImage"];
+		}
 		[_specifiers addObject:alfieDonateSpecifier];
 
 		PSSpecifier* opaGroupSpecifier = [PSSpecifier emptyGroupSpecifier];
@@ -52,6 +58,13 @@
 		opaDonateSpecifier.identifier = @"donateToOpa";
 		[opaDonateSpecifier setProperty:@YES forKey:@"enabled"];
 		opaDonateSpecifier.buttonAction = @selector(donateToOpaPressed);
+
+		UIImage *opadonatesymbolImage = [UIImage systemImageNamed:@"heart"];
+		if (opadonatesymbolImage) {
+ 	     opadonatesymbolImage = [opadonatesymbolImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    	[opaDonateSpecifier setProperty:opadonatesymbolImage forKey:@"iconImage"];
+		}
+
 		[_specifiers addObject:opaDonateSpecifier];
 	}
 	[(UINavigationItem *)self.navigationItem setTitle:@"Donate"];
