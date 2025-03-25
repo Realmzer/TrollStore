@@ -1,5 +1,5 @@
-Package: com.opa334.trollstore
-Name: TrollStore
+Package: com.opa334.trollstore+
+Name: TrollStore+
 Version: 2.1
 Architecture: iphoneos-arm
 Description: An awesome application!

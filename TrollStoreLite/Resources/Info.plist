@@ -40,7 +40,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.opa334.TrollStoreLite</string>
+	<string>com.realmzer.TrollStoreLite+</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>

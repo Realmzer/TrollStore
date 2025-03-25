@@ -6,6 +6,14 @@ It works because of an AMFI/CoreTrust bug where iOS does not correctly verify co
 
 Supported versions: 14.0 beta 2 - 16.6.1, 16.7 RC (20H18), 17.0
 
+## TrollStore Lite
+
+A version of TrollStore that supports jailbroken devices. Instead of using a CoreTrust bug, it uses a codesign bypass. If you were already using the regular TrollStore before this you are able to transfer all of your apps to TrollStore Lite. Instead of installing apps as regular apps, it will install apps as system apps instead. 
+
+Supported versions: iOS 14.0-Latest
+
+If you need to find a Jailbreak, refer to [ios.cfw.guide](https://ios.cfw.guide/get-started/).
+
 ## Installing TrollStore
 
 For installing TrollStore, refer to the guides at [ios.cfw.guide](https://ios.cfw.guide/installing-trollstore)
